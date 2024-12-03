@@ -54,13 +54,16 @@ const uart_id_t UART_ID[CFG_TUD_CDC] = {
 		.irq_fn = &uart0_irq_fn,
 		.tx_pin = 16,
 		.rx_pin = 17,
-	}, {
+	}, 
+#if CFG_TUD_CDC > 1
+	{
 		.inst = uart1,
 		.irq = UART1_IRQ,
 		.irq_fn = &uart1_irq_fn,
 		.tx_pin = 4,
 		.rx_pin = 5,
 	}
+#endif
 };
 
 uart_data_t UART_DATA[CFG_TUD_CDC];
